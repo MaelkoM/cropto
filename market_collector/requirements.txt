@@ -1,0 +1,4 @@
+pymongo
+krakenex
+pykrakenapi
+pandas
