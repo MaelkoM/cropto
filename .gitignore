@@ -129,5 +129,5 @@ dmypy.json
 .pyre/
 
 # custom
-**/config.py
+**/config*
 data/*
