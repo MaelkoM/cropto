@@ -1,2 +1,0 @@
-API_KEY = "TXT+i0qPNgbkZTutrmD0r5IMNPj/eV1FO0OoTlP/+0bpko+PocFQLSua"
-PRIVATE_KEY = "2fkv2tcWAuc4eyGU+w0G5/NJkg7lK8VpC8Rqj4bombK206W6LKtMVf4Zy3LItZt6yvcIXouxVfSc2EtFtiXESg=="
