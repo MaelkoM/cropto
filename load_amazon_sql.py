@@ -48,7 +48,6 @@ for file in tqdm.tqdm(os.listdir("data/Kraken_OHLCVT")):
         df = pd.read_csv(
             "data/Kraken_OHLCVT/" + file,
             sep=",",
-            index_col=0,
             names=[
                 "timestamp",
                 "open",
@@ -60,7 +59,7 @@ for file in tqdm.tqdm(os.listdir("data/Kraken_OHLCVT")):
                 "vwap",
             ],
         )
-        df.index = pd.to_datetime(df.index, unit="s")
+        df["timestamp"] = pd.to_datetime(df["timestamp"], unit="s")
         df["vwap"] = np.cumsum(
             df["volume"] * (df["open"] * df["high"] * df["close"]) / 3
         ) / np.cumsum(df["volume"])
