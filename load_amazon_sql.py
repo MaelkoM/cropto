@@ -37,8 +37,6 @@ uri = f"postgresql://{user}:{password}@{host}:{port}/{database}"
 engine = create_engine(uri, echo=True)
 metadata = MetaData()
 
-dataframes = {}
-
 timestamp = int(time.time() * 1000)
 
 for file in tqdm.tqdm(os.listdir("data/Kraken_OHLCVT")):
@@ -77,4 +75,3 @@ for file in tqdm.tqdm(os.listdir("data/Kraken_OHLCVT")):
         contents = output.getvalue()
         cur.copy_from(output, pair.lower(), null="")  # null values become ''
         conn.commit()
-

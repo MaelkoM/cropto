@@ -131,3 +131,6 @@ dmypy.json
 # custom
 **/config*
 data/*
+.virtual_documents/
+aclimdb/
+aclimdb*
