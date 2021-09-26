@@ -30,8 +30,6 @@ class PortfolioHistory:
             for currency in self.current.index.values
         ]
 
-        # help(KrakenAPI)
-
     def get_prices_history(self):
         self.prices_history = pd.DataFrame(columns=self.pairs)
         self.prices_history.to_csv("prices_history.csv", mode="w")

@@ -2,6 +2,9 @@ import config
 from tweepy import OAuthHandler, Stream
 from tweepy.streaming import StreamListener
 import logging
+import time
+
+import database_manager as dm
 
 
 def authenticate():
@@ -37,18 +40,21 @@ class MaxTweetsListener(StreamListener):
         print("connected. listening for incoming tweets")
 
     def on_status(self, status):
-        """Whatever we put in this method defines what is done with
-        every single tweet as it is intercepted in real-time"""
+        """
+        Stores tweet in psql database.
+        Info stored: timestamp, text, user, follower count and currency.
+        """
 
         # increase the counter
         self.counter += 1
 
         tweet = {
+            "timestamp": int(time.time() * 1000),
             "text": status.text,
             "username": status.user.screen_name,
             "followers_count": status.user.followers_count,
         }
-        tl.store_tweet(tweet)
+        dm.store_tweet(tweet)
         logging.info(f'New tweet arrived: {tweet["text"]}')
         print(f'New tweet arrived: {tweet["text"]}')
 
